@@ -85,21 +85,58 @@
 
 // let curriedfn = curry(sum);
 
-// console.log( curriedfn(5)(5));
+// console.log( curried                           
+
+                                             //****************************this******************************// 
+                                             
+
+// refers to the object it belongs to
+//makes functions reusable by letting you decide the object value
+//lets you determine the execution context &
+//its value is determined entirely by *how a function is called* (inplicit Binding, explici Binding, new binding, Default Binding)
+
+// examples...
+
+//implicit biding       
+// const person = {
+//         name: 'John',
+//         sayName: function ()  {
+//                 console.log (`My name is ${this.name}`);
+//         }          
+// }
+//  person.sayName(); // Result: John.  implicit binding rule says when a function is invoked with dot(.)notation 
+//                     //that this keywors refers to the object to the left side of the dot
 
 
-// let curriedfn = curry(sum);
 
-// console.log( curriedfn(5)(5));
-
-
-
-
-
-
+// //explicitly specifying the context where the function is called - using the build in 
+// //.call method and passing the object that this keywors refers to as an argument to the .call method.
+// function sayMyName () {
+//         console.log(`My name is ${this.name}`);
+// }
+//         sayMyName.call(person);
 
 
+// // new bindind- when a function is invoked using the new keyword, within the function, this keyword will always reference a new empty object.
+// function Person(name){
+//         //this = {}
+//         this.name = name;
+// }
 
+// const p1 = new Person("Yan");
+// const p2 = new Person('jim');
+// console.log(p1.name, p2.name); // Result: yan jim
+
+
+// //default binding - this keyword will refer to the global scope is none of the other 3 conditions are satisfied
+// function sayMyName () {
+//         console.log(`My name is ${this.name}`);
+// }
+   
+// sayMyName(); // Result:undefined - unless a global variable called name exists: name = 'bettty' for browsers  or  globalThis.name = betty for nodejs
+
+
+// Order of Precedence : New Binding takes priority, followed by, Explicit, followed by Implicit, followed by Default!
 
 
 
