@@ -142,6 +142,68 @@
 
 
 
+// *****************************************************Protype*******************************************
+
+ //1st- Used to share properties and methods across instances
+
+function Person(fName, lName) {
+        this.fName = fName;
+        this.lName = lName;
+}
+
+Person.prototype.getFullName = function () {      //defined getFullName function once, but it is available on every instance of the person object
+        return `${this.fName} ${this.lName}`;
+}
+// const per1 = new Person('Jack', 'Harlow');
+// const per2 = new Person('Kim', 'Holder');
+
+//  console.log(per1.getFullName());
+//  console.log(per2.getFullName());
+
+
+
+// 2nd- Used for inheritance: prototypal inheritance 
+// create a superhero object, that inherits properties from Person object
+
+function SuperHero(fName, lName) {       //pass in fName and lName because and we are going to inherit them from Person object 
+        Person.call(this, fName, lName); // fName and lName are now inherited by SuperHero from Person 
+        this.isSuperHero = true;
+}
+// add the fightCrime method to every instance of  the SuperHero object 
+SuperHero.prototype.fightCrime = function() {
+        return console.log('Fighting Crime');
+};
+
+// Use Object.create to chain the getFullName method to the SuperHero object
+// Object.create is a method that deligates to another object on failed lookups
+
+SuperHero.prototype = Object.create(Person.prototype); // later when we try to access Batman, or Batman.getFullName specifically, 
+                                                       // JS checks for this getFullName method in SuperHero, but doesnt find it(failed lookup)
+                                                       // it recognises that the prototypeobject has a chain to Person.prototype created, because of the Object.create method
+                                                       // So, it checks to see if Person.prototype has a getFullName method, It Does! So it executes that method
+                                                       //this is how the method is inherited through the protype chain. Hence the name, Prototypal inheritance!
+
+
+// now create an instane of the SuperHero object 
+// pass in the fName and lName of the SuperHero 
+const Batman = new SuperHero('Bruce', 'Wayne');
+// then log the SuperHero.getFullName
+console.log(Batman.getFullName() ); // result: Bruce Wayne
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
