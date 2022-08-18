@@ -32,10 +32,28 @@ button {
     background-color: teal;
     border: none;
     color: whitesmoke;
+    cursor: pointer;
 }
+
+
+
 #save{
-background-color: green;
+background: green;
+transition: all .3s ease;
 }
+
+#save:hover {
+    background: rgb(1, 189, 1);
+    transform: scale(1.2);
+}
+
+
 #increment{
     background: rgb(0, 153, 255);
+    transition: all .3s ease;
 }
+
+
+#increment:hover {
+    background: rgb(1, 117, 194);
+    transform: scale(1.2);
