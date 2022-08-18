@@ -88,6 +88,11 @@
 // console.log( curriedfn(5)(5));
 
 
+// let curriedfn = curry(sum);
+
+// console.log( curriedfn(5)(5));
+
+
 
 
 
