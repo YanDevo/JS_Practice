@@ -55,6 +55,63 @@
             // returning a combinationof the **function definition** along with the function's scope.
             // This would let the function have an associated persistent memory which can hold on to live data between executions.
             // That combination of the function and its scope chain is what is called a closure in JS.
+            //we get closures when we return a function from another function, 
+            //with closures the inner function still has access to variables in the outer scope even after the outer function has been executed
+            // nested functions have acces variables declared in  their own scope and scope of parent!
+
+
+
+
+
+// // FUNCTION CURRYING: Where we transform a funtion with multiple argumens, into a sequence of nesting functions, which take 1 argument at a time.   !!Does not call a function, Only transforms it!
+
+// setup a currying function that takes a 2-arity (a,b) function and curries it good! 
+// function curry(fn) {
+//     return (a)=> {
+//         return (b)=>{
+//             return fn(a, b);
+//         };
+//     };
+// }
+
+// // usage
+
+// //fn that the will be curried. the curry(fn) will take as a parameter
+// function sum(a, b) {
+//     return a + b;
+// }
+
+// //
+
+// let curriedfn = curry(sum);
+
+// console.log( curriedfn(5)(5));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
